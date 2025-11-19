@@ -1,0 +1,42 @@
+{
+  "trainers": [
+    {
+      "id": 1,
+      "name": "Trainer One",
+      "specialty": "Strength Training",
+      "experience": 5,
+      "clients": [
+        {
+          "clientId": 101,
+          "clientName": "Client A",
+          "progress": "Improving"
+        },
+        {
+          "clientId": 102,
+          "clientName": "Client B",
+          "progress": "Needs Improvement"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Trainer Two",
+      "specialty": "Cardio",
+      "experience": 3,
+      "clients": [
+        {
+          "clientId": 201,
+          "clientName": "Client C",
+          "progress": "Excellent"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Trainer Three",
+      "specialty": "Yoga",
+      "experience": 7,
+      "clients": []
+    }
+  ]
+}
