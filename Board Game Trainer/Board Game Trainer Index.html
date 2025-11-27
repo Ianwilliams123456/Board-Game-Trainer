@@ -1,9 +1,91 @@
-<!-- index.html (snippet where the game UI goes) -->
-<select id="game-select">
-  <option value="risk">Risk (Classic)</option>
-  <option value="arknova">Ark Nova</option>
-  <!-- add more -->
-</select>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Board Game Trainer Prototype</title>
+  <link rel="stylesheet" href="./trainer.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand__title">Board Game Trainer</div>
+        <div class="brand__subtitle">TypeScript prototype for four games</div>
+      </div>
+      <div class="selectors">
+        <label class="field">
+          <span>Game</span>
+          <select id="game-select"></select>
+        </label>
+        <label class="field">
+          <span>Players</span>
+          <input id="player-count" type="number" min="1" step="1" />
+          <small id="player-range" class="muted"></small>
+        </label>
+        <button id="restart-btn" class="ghost">Restart Session</button>
+      </div>
+    </header>
 
-<div id="global-panel"></div>
-<div id="players-panel"></div>
+    <main class="layout">
+      <section class="panel" id="turn-panel">
+        <header class="panel__header">
+          <h2>Turn &amp; Phase</h2>
+          <div class="phase-label" id="phase-label"></div>
+        </header>
+        <div class="turn-grid">
+          <div class="turn-box">
+            <div class="stat-label">Turn</div>
+            <div class="stat-value" id="turn-number">1</div>
+            <div class="stat-actions">
+              <button data-turn="dec">-</button>
+              <button data-turn="inc">+1</button>
+            </div>
+          </div>
+          <div class="turn-box">
+            <div class="stat-label">Active Player</div>
+            <div class="stat-value" id="active-player">Player 1</div>
+            <div class="stat-actions">
+              <button data-player-nav="prev">Prev</button>
+              <button data-player-nav="next">Next</button>
+            </div>
+          </div>
+          <div class="turn-box">
+            <div class="stat-label">Phase</div>
+            <div class="stat-value" id="active-phase">-</div>
+            <div class="stat-actions">
+              <button data-phase="prev">Back</button>
+              <button data-phase="next">Advance</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="global-panel">
+        <header class="panel__header">
+          <h2>Global Resources</h2>
+          <div id="global-hint" class="muted"></div>
+        </header>
+        <div id="global-list" class="stack"></div>
+      </section>
+
+      <section class="panel" id="players-panel">
+        <header class="panel__header">
+          <h2>Players</h2>
+          <div id="players-hint" class="muted"></div>
+        </header>
+        <div id="player-buttons" class="player-buttons"></div>
+        <div id="players-list" class="player-grid"></div>
+      </section>
+
+      <section class="panel" id="ideas-panel">
+        <header class="panel__header">
+          <h2>Per-Game Notes &amp; Suggested Panels</h2>
+        </header>
+        <ul id="ideas-list" class="bullets"></ul>
+      </section>
+    </main>
+  </div>
+  <script src="./trainer.js"></script>
+</body>
+</html>

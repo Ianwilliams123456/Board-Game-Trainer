@@ -1,0 +1,34 @@
+{
+  "key": "risk-clonewars",
+  "name": "Risk: Star Wars - The Clone Wars",
+  "minPlayers": 2,
+  "maxPlayers": 5,
+  "phases": ["Reinforcement", "Attack", "Fortify"],
+  "resources": [
+    { "key": "setsTurnedIn", "label": "Card Sets Turned In", "type": "number", "scope": "global", "min": 0, "max": 999 },
+    {
+      "key": "riskTurnIn",
+      "label": "Next Card Turn-In (Armies)",
+      "type": "derived",
+      "scope": "global",
+      "derive": { "fn": "riskNextArmies", "args": ["setsTurnedIn"] }
+    },
+    {
+      "key": "riskCardEscalator",
+      "label": "Card Turn-Ins (Escalating)",
+      "type": "escalator",
+      "scope": "global",
+      "schedule": [4, 6, 8, 10, 12, 15],
+      "step": 5,
+      "counterKey": "setsTurnedIn"
+    },
+    { "key": "systemsHeld", "label": "Systems Held", "type": "number", "scope": "perPlayer", "min": 0, "max": 50 },
+    { "key": "reinforcementPool", "label": "Reinforcement Pool", "type": "number", "scope": "perPlayer", "min": 0, "max": 50 }
+  ],
+  "players": {
+    "fields": [
+      { "key": "name", "label": "Faction / Commander", "type": "text" },
+      { "key": "color", "label": "Color", "type": "color" }
+    ]
+  }
+}

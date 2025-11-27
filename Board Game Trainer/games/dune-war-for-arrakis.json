@@ -1,0 +1,20 @@
+{
+  "key": "dune-war-for-arrakis",
+  "name": "Dune: War for Arrakis",
+  "minPlayers": 2,
+  "maxPlayers": 2,
+  "phases": ["Round Start", "Action Phase", "Refresh"],
+  "resources": [
+    { "key": "round", "label": "Round", "type": "number", "scope": "global", "min": 1, "max": 12 },
+    { "key": "victoryPoints", "label": "Victory Points", "type": "number", "scope": "perPlayer", "min": 0, "max": 15 },
+    { "key": "spice", "label": "Spice Stockpile", "type": "number", "scope": "perPlayer", "min": 0, "max": 50 },
+    { "key": "supply", "label": "Supply / Logistics", "type": "number", "scope": "perPlayer", "min": 0, "max": 20 },
+    { "key": "troopPool", "label": "Troops in Reserve", "type": "number", "scope": "perPlayer", "min": 0, "max": 30 }
+  ],
+  "players": {
+    "fields": [
+      { "key": "name", "label": "Faction", "type": "text" },
+      { "key": "color", "label": "Color", "type": "color" }
+    ]
+  }
+}
